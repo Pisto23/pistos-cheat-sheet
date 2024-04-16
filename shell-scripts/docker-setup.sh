@@ -11,17 +11,14 @@ password=$(<"$PASSWORD_FILE")
 
 echo "$password" | sudo -S apt update 
 
-# Debugging
-set -x
+# Debugging, can be disabled or enabled, your choice. Was helpful by creating the script
+# set -x
 
 # Create Docker group
 sudo groupadd docker
 
 # Add your user to the docker group
 sudo usermod -aG docker $USER
-
-# Activater the changes to the group
-# sudo newgrp docker
 
 # Add Docker's official GPG key:
 sudo apt install ca-certificates curl -y
